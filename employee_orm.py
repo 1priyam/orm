@@ -103,7 +103,6 @@ class Department(Base):
     id=Column(Integer,primary_key=True)
     name=Column(String)
     students=relationship("Student",back_populate="departments")      #back_populates = by directional relationship ko define karta hai
-    students=relationship("Student",back_populates="department")      #back_populates = by directional relationship ko define karta hai
 
 class Student(Base):
     __tablename__="students"
@@ -111,7 +110,6 @@ class Student(Base):
     name=Column(String)
     age=Column(Integer)
     department_id=Column(Integer,ForeignKey("department.id"))
-    department_id=Column(Integer,ForeignKey("departments.id"))
     department=relationship("Department",back_populates="students")
 
 
